@@ -27,16 +27,22 @@ public class BookingService {
     private final UserService userService;
     private final ShowService showService;
 
+
+    public List<Booking> getAllBookings(){
+        return bookingRepository.findAll();
+    }
+
     @Transactional
     public Booking createBooking(BookingRequest bookingRequest){
 
         User user = userService.getUserById(bookingRequest.getUserId());
         Show show = showService.getShowById(bookingRequest.getShowId());
 
+
         //check if any of the request seat are already booked
         List<Long> alreadyBookedSeat = bookingRepository.finalBookedSeatIdsByShowId(show.getId());
         for (Long seatId: bookingRequest.getSeatIds()){
-            if(alreadyBookedSeat.equals(seatId)){
+            if(alreadyBookedSeat.contains(seatId)){
                 throw new RuntimeException("seat with id "+seatId+" is already Booked");
             }
         }

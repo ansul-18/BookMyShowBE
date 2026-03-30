@@ -21,11 +21,11 @@ public class Booking {
     private Long id;
 
     @ManyToOne
-    @Column(name = "user_id",nullable = false)
+    @JoinColumn(name = "user_id",nullable = false)
     private User user;
 
     @ManyToOne
-    @Column(name = "show_id",nullable = false)
+    @JoinColumn(name = "show_id",nullable = false)
     private Show show;
 
     @ManyToMany

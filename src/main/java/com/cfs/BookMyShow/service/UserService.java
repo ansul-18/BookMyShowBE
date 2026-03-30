@@ -1,9 +1,9 @@
 package com.cfs.BookMyShow.service;
 
+import com.cfs.BookMyShow.dto.LoginRequest;
 import com.cfs.BookMyShow.dto.UserRequest;
 import com.cfs.BookMyShow.entity.User;
 import com.cfs.BookMyShow.repository.UserRepository;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class UserService {
 
     //register
     public User register(UserRequest request){
-        if(userRepository.existByEmail(request.getEmail())){
+        if(userRepository.existsByEmail(request.getEmail())){
             throw new RuntimeException("Email already exists : "+request.getEmail());
         }
 
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     //login
-    public User login(UserRequest request){
+    public User login(LoginRequest request){
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(()->new RuntimeException("User not found with email : "+request.getEmail()));
         if (!user.getPassword().equals(request.getPassword())){

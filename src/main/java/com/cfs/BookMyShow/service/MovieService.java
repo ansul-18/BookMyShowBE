@@ -3,10 +3,8 @@ package com.cfs.BookMyShow.service;
 
 import com.cfs.BookMyShow.entity.Movie;
 import com.cfs.BookMyShow.repository.MovieRepository;
-import lombok.Lombok;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 

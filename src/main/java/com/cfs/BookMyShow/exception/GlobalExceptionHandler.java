@@ -24,13 +24,14 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handleException(RuntimeException ex){
+    public ResponseEntity<Map<String, Object>> handleException(Exception ex){
 
         Map<String,Object> error = new HashMap<>();
         error.put("timestamp", LocalDateTime.now());
         error.put("message","Something went wrong " + ex.getMessage());
         error.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        return ResponseEntity.badRequest().body(error);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//        return ResponseEntity.badRequest().body(error);
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CityService {
 
-    private CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     public City addCity(City city){
         return cityRepository.save(city);
