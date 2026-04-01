@@ -30,10 +30,10 @@ public class User {
 
     private String phone;
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
     @PrePersist
-    protected void onCreate (){
-        this.createAt = LocalDateTime.now();
+    protected void onCreated (){
+        this.createdAt = LocalDateTime.now();
     }
 }

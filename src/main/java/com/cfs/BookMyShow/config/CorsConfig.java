@@ -10,14 +10,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //public class CorsConfig {
 //
 //    @Bean
-//    public WebMvcConfigurer corsConfigMapping() {
-//
-//
-//        return new WebMvcConfigurer() {
+//    public WebMvcConfigure corsConfigMapping() {
+//        return new WebMvcConfigure() {
 //            @Override
 //            public void addCorsMappings(CorsRegistry registry) {
 //                registry.addMapping("/api/**")
-//                        .allowedOrigins("http://127.0.0.1:5500")
+//                        .allowedOrigins("*")
 //                        .allowedMethods("GET", "POST", "PUT", "DELETE")
 //                        .allowedHeaders("*");
 //            }

@@ -23,7 +23,7 @@ public class ScreenController {
     private final ScreenService screenService;
 
     @PostMapping
-    public ResponseEntity<Screen> addScreen(@RequestBody Screen screenRequest) {
+    public ResponseEntity<Screen> addScreen(@RequestBody ScreenRequest screenRequest) {
         return ResponseEntity.ok(screenService.addScreen(screenRequest));
     }
 

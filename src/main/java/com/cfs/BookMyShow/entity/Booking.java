@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "booking_id")
+@Table(name = "bookings")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -32,7 +32,7 @@ public class Booking {
     @JoinTable(
             name = "booking_seats",
             joinColumns = @JoinColumn(name = "booking_id"),
-            inverseJoinColumns = @JoinColumn(name = "seats_id")
+            inverseJoinColumns = @JoinColumn(name = "seat_id")
     )
     private List<Seat> seats;
 
@@ -44,7 +44,7 @@ public class Booking {
     private LocalDateTime bookedAt;
 
     @PrePersist
-    private void onCreate(){
+    private void onCreated(){
         this.bookedAt=LocalDateTime.now();
         if (this.status==null){
             this.status=BookingStatus.CONFIRMED;

@@ -84,7 +84,8 @@ public class BookingService {
         Show show = showService.getShowById(showId);
         List<Seat> allSeats = seatRepository.findByScreenId(show.getScreen().getId());
         List<Long> bookingSeatsIds = bookingRepository.finalBookedSeatIdsByShowId(showId);
-        return allSeats.stream()
+        return allSeats
+                .stream()
                 .filter(seat -> !bookingSeatsIds.contains(seat.getId()))
                 .toList();
     }
