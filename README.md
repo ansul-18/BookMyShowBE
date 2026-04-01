@@ -87,18 +87,6 @@ src/main/java/com/project
 
 ---
 
-## 📸 Screenshots
-
-* Home / Movie Listing
-* Show & Theater View
-* Seat Selection
-* Booking Confirmation
-* Postman API Testing
-
-(Add screenshots here)
-
----
-
 ## 🔮 Future Enhancements
 
 * 🔐 User Authentication (JWT / Spring Security)
